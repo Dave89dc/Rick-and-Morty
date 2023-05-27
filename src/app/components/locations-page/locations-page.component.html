@@ -1,1 +1,15 @@
-<p>locations-page works!</p>
+<div class="title-box">
+  <h1>Rick&Morty's Characters</h1>
+</div>
+<div class="card-box">
+  <app-character-card *ngFor="let location of locations" [location]="location"></app-character-card>
+</div>
+<ngb-pagination class="d-flex justify-content-center" style="margin: 50px;"
+	[collectionSize]="826"
+	[(page)]="page"
+	[pageSize]="20"
+	[maxSize]="6"
+	[rotate]="true"
+	[boundaryLinks]="true"
+  (pageChange)="loadLocations()"
+></ngb-pagination>

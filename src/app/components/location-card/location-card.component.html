@@ -1,0 +1,15 @@
+<mat-card *ngIf="location" class="example-card">
+  <mat-card-header>
+    <mat-card-title-group>
+      <mat-card-title>{{location.name}}</mat-card-title>
+      <mat-card-subtitle>{{location.type}}</mat-card-subtitle>
+      <img mat-card-xl-image src="">
+    </mat-card-title-group>
+  </mat-card-header>
+  <mat-card-content>
+    <p>Type: {{location.type}}</p>
+    <p>Dimension: {{location.dimension}}</p>
+    <p>Residents: {{location.residents}}</p>
+    <p>Created: {{location.created}}</p>
+  </mat-card-content>
+</mat-card>

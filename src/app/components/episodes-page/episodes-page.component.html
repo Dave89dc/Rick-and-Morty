@@ -1,1 +1,15 @@
-<p>episodes-page works!</p>
+<div class="title-box">
+  <h1>Rick&Morty's Episodes</h1>
+</div>
+<div class="card-box">
+  <app-episode-card *ngFor="let episode of episodes" [episode]="episode"></app-episode-card>
+</div>
+<ngb-pagination class="d-flex justify-content-center" style="margin: 50px;"
+	[collectionSize]="51"
+	[(page)]="page"
+	[pageSize]="20"
+	[maxSize]="6"
+	[rotate]="true"
+	[boundaryLinks]="true"
+  (pageChange)="loadEpisodes()"
+></ngb-pagination>

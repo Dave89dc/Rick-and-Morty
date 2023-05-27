@@ -1,11 +1,11 @@
 <div class="title-box">
-  <h1>Rick&Morty's Characters</h1>
+  <h1>Rick&Morty's Locations</h1>
 </div>
 <div class="card-box">
-  <app-character-card *ngFor="let location of locations" [location]="location"></app-character-card>
+  <app-location-card *ngFor="let location of locations" [location]="location"></app-location-card>
 </div>
 <ngb-pagination class="d-flex justify-content-center" style="margin: 50px;"
-	[collectionSize]="826"
+	[collectionSize]="126"
 	[(page)]="page"
 	[pageSize]="20"
 	[maxSize]="6"

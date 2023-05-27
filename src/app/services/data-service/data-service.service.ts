@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, forkJoin, switchMap } from 'rxjs';
+import { Observable, switchMap } from 'rxjs';
 import { Character } from 'src/app/models/character/character';
 import { Episode } from 'src/app/models/episode/episode';
+import { Location } from 'src/app/models/location/location';
 
 @Injectable({
   providedIn: 'root'

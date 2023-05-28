@@ -18,7 +18,7 @@ export class EpisodesPageComponent implements OnInit {
 
   constructor(private dataService: DataServiceService, config: NgbPaginationConfig){
     this.loadEpisodes();
-    this.loadCharacters();
+    //this.loadCharacters();
     config.size = 'sm';
 		config.boundaryLinks = true;
   }
@@ -34,11 +34,18 @@ export class EpisodesPageComponent implements OnInit {
     });
   }
 
-  loadCharacters(){
-    this.dataService.getCharactersFromEpisode(this.id).subscribe({
-      next: characters => console.log(characters),
-      error: err => console.log('Error: ', err)
-    });
-  }
+  // loadCharacters(){
+  //   this.dataService.getCharactersFromEpisode(this.id).subscribe({
+  //     next: characters => {
+  //       const nameArray = [];
+  //       for (const character of characters) {
+  //         const name = character.name;
+  //         nameArray.push(name);
+  //       }
+  //       console.log(nameArray.join(', '));
+  //     },
+  //     error: err => console.log('Error: ', err)
+  //   });
+  // }
 
 }

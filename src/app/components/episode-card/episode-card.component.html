@@ -1,0 +1,24 @@
+<mat-card *ngIf="episode" class="example-card">
+  <mat-card-header>
+    <mat-card-title-group>
+      <mat-card-title>{{episode.name}}</mat-card-title>
+      <mat-card-subtitle>{{episode.episode}}</mat-card-subtitle>
+    </mat-card-title-group>
+  </mat-card-header>
+  <mat-card-content>
+    <p>Date: {{episode.air_date}}</p>
+    <ng-template #content let-c="close" let-d="dismiss">
+      <div style="background-color: #292b2c; color: white;" class="modal-header">
+        <h2 class="modal-title" id="modal-basic-title">Episode Characters:</h2>
+      </div>
+      <div style="background-color: #292b2c; color: white; max-height: 500px; overflow-y: scroll;" class="modal-body">
+        <p>{{loadCharacters(episode.id)}}</p>
+      </div>
+      <div style="background-color: #292b2c; color: white;" class="modal-footer">
+        <button type="button" class="btn btn-outline-light" (click)="c('Save click')">Chiudi</button>
+      </div>
+    </ng-template>
+    <button style="margin-right: 5px;" class="btn btn-outline-light" (click)="open(content)">Characters</button>
+  </mat-card-content>
+</mat-card>
+

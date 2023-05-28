@@ -19,7 +19,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { CharacterCardComponent } from './components/character-card/character-card.component';
 import { NgbModule, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { LocationCardComponent } from './components/location-card/location-card.component';
-import { EpisodeCardComponent } from './episode-card/episode-card.component';
+import { EpisodeCardComponent } from './components/episode-card/episode-card.component';
 
 @NgModule({
   declarations: [

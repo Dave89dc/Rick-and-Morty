@@ -39,6 +39,21 @@ export class DataServiceService {
     )
   }
 
+  getResidents(id: number): Observable<Character[]>{
+    return this.http.get<any>(this.LOCATIONS_URL + id).pipe(
+      switchMap(location => {
+        const residentsUrl = location.residents;
+        const getArray = [];
+        for (const resident of residentsUrl){
+          const request = this.http.get<Character>(resident);
+          getArray.push(request);
+        }
+        return forkJoin(getArray);
+      })
+    )
+
+  }
+
   getEpisodes(episodesPage: number): Observable<Episode[]>{
     return this.http.get<any>(this.EPISODES_URL + '?page=' + episodesPage).pipe(
       switchMap(episodes => {
@@ -52,8 +67,8 @@ export class DataServiceService {
 
   getCharactersFromEpisode(id: number): Observable<Character[]>{
     return this.http.get<any>(this.EPISODES_URL + id).pipe(
-      switchMap(characters => {
-        const charactersUrl = characters.characters;
+      switchMap(episode => {
+        const charactersUrl = episode.characters;
         const getArray = [];
         for (const character of charactersUrl){
           const request = this.http.get<Character>(character);

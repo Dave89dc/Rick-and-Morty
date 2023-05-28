@@ -14,22 +14,23 @@ export class LocationCardComponent {
   id: number = 1;
 
   constructor(private dataService: DataServiceService){
-    this.loadResidents(this.id);
+    //this.loadResidents(this.id);
+    
   }
 
-  loadResidents(id: number){
-    this.dataService.getResidents(id).subscribe({
-      next: residents => {
-        const nameArray = [];
-        for (const resident of residents) {
-          const name = resident.name;
-          nameArray.push(name);
-        }
-        console.log(nameArray);
-        this.residents = nameArray.join(', ');
-      },
-      error: err => console.log('Error: ', err)
-    });
-  }
+  // loadResidents(id: number){
+  //   this.dataService.getResidents(id).subscribe({
+  //     next: residents => {
+  //       const nameArray = [];
+  //       for (const resident of residents) {
+  //         const name = resident.name;
+  //         nameArray.push(name);
+  //       }
+  //       console.log(nameArray);
+  //       this.residents = nameArray.join(', ');
+  //     },
+  //     error: err => console.log('Error: ', err)
+  //   });
+  // }
 
 }

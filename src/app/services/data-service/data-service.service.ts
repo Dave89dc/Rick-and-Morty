@@ -39,13 +39,30 @@ export class DataServiceService {
     )
   }
 
-  getResidents(id: number): Observable<Character[]>{
-    return this.http.get<any>(this.LOCATIONS_URL + id).pipe(
+  // getResidents(id: number): Observable<Character[]>{
+  //   return this.http.get<any>(this.LOCATIONS_URL + id).pipe(
+  //     switchMap(location => {
+  //       const residentsUrl = location.residents;
+  //       const getArray = [];
+  //       for (const resident of residentsUrl){
+  //         const request = this.http.get<Character>(resident);
+  //         getArray.push(request);
+  //       }
+  //       return forkJoin(getArray);
+  //     })
+  //   )
+
+  // }
+
+  getResidents(): Observable<Character[]>{
+    return this.http.get<any>(this.LOCATIONS_URL).pipe(
       switchMap(location => {
-        const residentsUrl = location.residents;
+        const residentsObject = location.results;
         const getArray = [];
-        for (const resident of residentsUrl){
-          const request = this.http.get<Character>(resident);
+        for (const resident of residentsObject){
+          const residentsUrl = resident.residents;
+          const request = this.http.get<Character>(residentsUrl);
+          console.log(residentsUrl)
           getArray.push(request);
         }
         return forkJoin(getArray);

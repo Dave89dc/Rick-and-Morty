@@ -16,6 +16,7 @@ export class LocationsPageComponent implements OnInit {
 
   constructor(private dataService: DataServiceService, config: NgbPaginationConfig){
     this.loadLocations();
+    this.loadResidents();
     config.size = 'sm';
 		config.boundaryLinks = true;
   }
@@ -27,6 +28,13 @@ export class LocationsPageComponent implements OnInit {
   loadLocations(){
     this.dataService.getLocations(this.page).subscribe({
       next: locations => this.locations = locations,
+      error: err => console.log('Error: ', err)
+    });
+  }
+
+  loadResidents(){
+    this.dataService.getResidents().subscribe({
+      next: residents => console.log(residents),
       error: err => console.log('Error: ', err)
     });
   }

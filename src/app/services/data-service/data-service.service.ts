@@ -5,6 +5,7 @@ import { Character } from 'src/app/models/character/character';
 import { Episode } from 'src/app/models/episode/episode';
 import { Location } from 'src/app/models/location/location';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -54,21 +55,20 @@ export class DataServiceService {
 
   // }
 
-  getResidents(): Observable<Character[]>{
-    return this.http.get<any>(this.LOCATIONS_URL).pipe(
+  getResidents(locationsPage: number): Observable<Character[]>{
+    return this.http.get<any>(this.LOCATIONS_URL + '?page=' + locationsPage).pipe(
       switchMap(location => {
-        const residentsObject = location.results;
+        const locationsObject = location.results;
         const getArray = [];
-        for (const resident of residentsObject){
-          const residentsUrl = resident.residents;
-          const request = this.http.get<Character>(residentsUrl);
+        for (const location of locationsObject){
+          const residentsUrl = location.residents;
           console.log(residentsUrl)
-          getArray.push(request);
+          const request = residentsUrl.map((residentUrl: string) => this.http.get<Character>(residentUrl));
+          getArray.push(...request);
         }
         return forkJoin(getArray);
       })
     )
-
   }
 
   getEpisodes(episodesPage: number): Observable<Episode[]>{

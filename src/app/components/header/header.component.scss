@@ -1,3 +1,23 @@
 .example-spacer {
   flex: 1 1 auto;
 }
+
+.example-icon {
+  border-radius: 20px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.574);
+}
+
+.example-icon:hover {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.example-icon:active {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.831);
+}

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbPaginationConfig } from '@ng-bootstrap/ng-bootstrap';
+import { Character } from 'src/app/models/character/character';
 import { Location } from 'src/app/models/location/location';
 import { DataServiceService } from 'src/app/services/data-service/data-service.service';
 
@@ -12,17 +13,19 @@ import { DataServiceService } from 'src/app/services/data-service/data-service.s
 export class LocationsPageComponent implements OnInit {
 
   locations: Location[] = [];
+  characters: Character[] =[];
   page: number = 1;
 
   constructor(private dataService: DataServiceService, config: NgbPaginationConfig){
     this.loadLocations();
-    this.loadResidents();
+    //this.loadResidents();
     config.size = 'sm';
 		config.boundaryLinks = true;
   }
 
   ngOnInit(){
     this.loadLocations();
+    this.loadResidents();
   }
 
   loadLocations(){
@@ -33,10 +36,12 @@ export class LocationsPageComponent implements OnInit {
   }
 
   loadResidents(){
-    this.dataService.getResidents().subscribe({
-      next: residents => console.log(residents),
+    this.dataService.getResidents(this.page).subscribe({
+      next: residents => console.log('Eccomi: ', residents),
       error: err => console.log('Error: ', err)
     });
   }
+
+
 
 }

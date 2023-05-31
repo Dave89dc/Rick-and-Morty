@@ -1,0 +1,215 @@
+/* For use in src/lib/core/theming/_palette.scss */
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+$primary-green: (
+    50 : #e1fde3,
+    100 : #b3fab8,
+    200 : #81f789,
+    300 : #4ef35a,
+    400 : #28f136,
+    500 : #02ee13,
+    600 : #02ec11,
+    700 : #01e90e,
+    800 : #01e70b,
+    900 : #01e206,
+    A100 : #ffffff,
+    A200 : #d6ffd6,
+    A400 : #a3ffa4,
+    A700 : #8aff8a,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+
+$grey: (
+    50 : #e6e6e6,
+    100 : #c0c0c0,
+    200 : #979797,
+    300 : #6d6d6d,
+    400 : #4d4d4d,
+    500 : #2e2e2e,
+    600 : #292929,
+    700 : #232323,
+    800 : #1d1d1d,
+    900 : #121212,
+    A100 : #ef6b6b,
+    A200 : #e93d3d,
+    A400 : #f30000,
+    A700 : #da0000,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #ffffff,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+
+
+
+$yellow: (
+    50 : #fefce8,
+    100 : #fcf8c6,
+    200 : #faf4a0,
+    300 : #f8ef79,
+    400 : #f7eb5d,
+    500 : #f5e840,
+    600 : #f4e53a,
+    700 : #f2e232,
+    800 : #f0de2a,
+    900 : #eed81c,
+    A100 : #ffffff,
+    A200 : #fffdef,
+    A400 : #fff8bc,
+    A700 : #fff5a2,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$light-blue: (
+    50 : #e8fbfe,
+    100 : #c6f5fc,
+    200 : #a0eefa,
+    300 : #79e7f8,
+    400 : #5de1f7,
+    500 : #40dcf5,
+    600 : #3ad8f4,
+    700 : #32d3f2,
+    800 : #2acef0,
+    900 : #1cc5ee,
+    A100 : #ffffff,
+    A200 : #effcff,
+    A400 : #bcf1ff,
+    A700 : #a2ecff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$warn: (
+    50 : #fee8e4,
+    100 : #fcc6bc,
+    200 : #faa190,
+    300 : #f77b64,
+    400 : #f65e42,
+    500 : #f44221,
+    600 : #f33c1d,
+    700 : #f13318,
+    800 : #ef2b14,
+    900 : #ec1d0b,
+    A100 : #ffffff,
+    A200 : #ffe4e3,
+    A400 : #ffb4b0,
+    A700 : #ff9c96,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$primario-light: mat.define-palette($primary-green, 600);
+$secondario-light: mat.define-palette($yellow, 800);
+$terziario-light: mat.define-palette($light-blue, 900);
+
+$primario-dark: mat.define-palette($grey, 900);
+$secondario-dark: mat.define-palette($primary-green, 600);
+$terziario-light: mat.define-palette($grey, 600);
+
+$allarme: mat.define-palette($warn, 900);
+
+$my-theme-light: mat.define-light-theme((
+  color: (
+    primary: $primario-light,
+    secondary: $secondario-light,
+    accent: $terziario-light,
+    warn: $allarme
+  ),
+  density: 0,
+ ));
+
+$my-theme-dark: mat.define-dark-theme((
+  color: (
+    primary: $primario-dark,
+    secondary: $secondario-dark,
+    accent: $terziario-light,
+    warn: $allarme
+  ),
+  density: 0,
+ ));
+
+
+@include mat.all-component-themes($my-theme-light);
+
+.dark-mode{
+  @include mat.all-component-themes($my-theme-dark);
+}
+
+
+
+
+
+

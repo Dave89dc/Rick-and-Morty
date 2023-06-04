@@ -10,4 +10,14 @@ export class CharacterCardComponent {
 
   @Input() character?: Character;
 
+  getCharacterStatusColor(status: string): string {
+    if (status === 'Alive') {
+      return 'green';
+    } else if (status === 'Dead') {
+      return 'red';
+    } else {
+      return 'black';
+    }
+  }
+
 }

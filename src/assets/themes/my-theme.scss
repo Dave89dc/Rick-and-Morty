@@ -177,7 +177,7 @@ $terziario-light: mat.define-palette($light-blue, 900);
 
 $primario-dark: mat.define-palette($grey, 900);
 $secondario-dark: mat.define-palette($primary-green, 600);
-$terziario-light: mat.define-palette($grey, 600);
+$terziario-dark: mat.define-palette($grey, 600);
 
 $allarme: mat.define-palette($warn, 900);
 
@@ -195,7 +195,7 @@ $my-theme-dark: mat.define-dark-theme((
   color: (
     primary: $primario-dark,
     secondary: $secondario-dark,
-    accent: $terziario-light,
+    accent: $terziario-dark,
     warn: $allarme
   ),
   density: 0,
@@ -207,9 +207,3 @@ $my-theme-dark: mat.define-dark-theme((
 .dark-mode{
   @include mat.all-component-themes($my-theme-dark);
 }
-
-
-
-
-
-

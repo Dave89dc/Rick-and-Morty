@@ -31,4 +31,6 @@ export class CharactersPageComponent implements OnInit {
     });
   }
 
+  
+
 }

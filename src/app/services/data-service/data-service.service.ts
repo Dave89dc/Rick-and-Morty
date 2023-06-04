@@ -40,36 +40,36 @@ export class DataServiceService {
     )
   }
 
-  // getResidents(id: number): Observable<Character[]>{
-  //   return this.http.get<any>(this.LOCATIONS_URL + id).pipe(
-  //     switchMap(location => {
-  //       const residentsUrl = location.residents;
-  //       const getArray = [];
-  //       for (const resident of residentsUrl){
-  //         const request = this.http.get<Character>(resident);
-  //         getArray.push(request);
-  //       }
-  //       return forkJoin(getArray);
-  //     })
-  //   )
-
-  // }
-
-  getResidents(locationsPage: number): Observable<Character[]>{
-    return this.http.get<any>(this.LOCATIONS_URL + '?page=' + locationsPage).pipe(
+  getResidents(id: number): Observable<Character[]>{
+    return this.http.get<any>(this.LOCATIONS_URL + id).pipe(
       switchMap(location => {
-        const locationsObject = location.results;
+        const residentsUrl = location.residents;
         const getArray = [];
-        for (const location of locationsObject){
-          const residentsUrl = location.residents;
-          console.log(residentsUrl)
-          const request = residentsUrl.map((residentUrl: string) => this.http.get<Character>(residentUrl));
-          getArray.push(...request);
+        for (const resident of residentsUrl){
+          const request = this.http.get<Character>(resident);
+          getArray.push(request);
         }
         return forkJoin(getArray);
       })
     )
+
   }
+
+  // getResidents(locationsPage: number): Observable<Character[]>{
+  //   return this.http.get<any>(this.LOCATIONS_URL + '?page=' + locationsPage).pipe(
+  //     switchMap(location => {
+  //       const locationsObject = location.results;
+  //       const getArray = [];
+  //       for (const location of locationsObject){
+  //         const residentsUrl = location.residents;
+  //         console.log(residentsUrl)
+  //         const request = residentsUrl.map((residentUrl: string) => this.http.get<Character>(residentUrl));
+  //         getArray.push(...request);
+  //       }
+  //       return forkJoin(getArray);
+  //     })
+  //   )
+  // }
 
   getEpisodes(episodesPage: number): Observable<Episode[]>{
     return this.http.get<any>(this.EPISODES_URL + '?page=' + episodesPage).pipe(

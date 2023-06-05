@@ -16,7 +16,7 @@ export class CharacterCardComponent {
     } else if (status === 'Dead') {
       return 'red';
     } else {
-      return 'black';
+      return 'grey';
     }
   }
 

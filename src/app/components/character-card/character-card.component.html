@@ -1,9 +1,7 @@
 <mat-card *ngIf="character" class="example-card">
-  <mat-card color="secondary" *ngIf="character" class="example-card">
-    <mat-card-header>
+  <mat-card-header>
       <mat-card-title-group>
         <mat-card-title style="font-size: 30px;"><b>{{character.name}}</b></mat-card-title>
-        <mat-card-title>{{character.name}}</mat-card-title>
         <mat-card-subtitle>{{character.species}}</mat-card-subtitle>
         <img mat-card-xl-image src="{{character.image}}" >
       </mat-card-title-group>
@@ -14,7 +12,5 @@
       <p>Gender: {{character.gender}}</p>
       <p>Origin: {{character.origin.name}}</p>
       <p>Last known location: {{character.location.name}}</p>
-      <p>Origin: {{character.origin}}</p>
-      <p>Last known location: {{character.location}}</p>
     </mat-card-content>
-  </mat-card>
+</mat-card>
